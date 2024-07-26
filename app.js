@@ -75,7 +75,7 @@ btn6.addEventListener("click", function(){
 	}
 	else {
 		tg.MainButton.setText("Вы выбрали товар 6!");
-		item = "6";
+		item = "Это 6 кнопка!";
 		tg.MainButton.show();
 	}
 });
