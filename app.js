@@ -1,6 +1,5 @@
 let tg = window.Telegram.WebApp;
 let selectedItem = {};
-let userId = tg.initDataUnsafe.user.id;
 
 tg.expand(); // расширяем на весь экран сайт
 
@@ -31,7 +30,14 @@ btns.forEach((btn) => {
 });
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-  let jsonData = {};
-  jsonData[userId] = Object.values(selectedItem);
-  tg.sendData(JSON.stringify(jsonData));
+  let jsonData = JSON.stringify(selectedItem);
+  tg.sendData(jsonData);
 });
+
+let usercard = document.getElementById("usercard");
+
+let p = document.createElement("p");
+
+p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
+
+usercard.appendChild(p);
